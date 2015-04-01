@@ -1,5 +1,5 @@
 {
-    "name": "caseyamcl/bolt.dumpdb",
+    "name": "caseyamcl/bolt_dumpdb",
     "description": "Adds Nut commands to dump (backup) the database and load (restore) it",
     "type": "bolt-extension",
     "require": {
