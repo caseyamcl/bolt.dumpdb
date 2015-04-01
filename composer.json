@@ -1,0 +1,24 @@
+{
+    "name": "caseyamcl/bolt.dumpdb",
+    "description": "Adds Nut commands to dump (backup) the database and load (restore) it",
+    "type": "bolt-extension",
+    "require": {
+        "bolt/bolt": ">=2.0.0,<3.0.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name":  "Casey McLaughlin",
+            "email": "caseyamcl@gmail.com",
+            "role":  "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "init.php"
+        ],
+        "psr-4": {
+            "Bolt\\Extension\\FSURCC\\DumpDB\\": ""
+        }
+    }
+}

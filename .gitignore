@@ -1,0 +1,6 @@
+# Ignore Composer stuff
+composer.lock
+vendor
+
+# IDE stuff
+.idea
