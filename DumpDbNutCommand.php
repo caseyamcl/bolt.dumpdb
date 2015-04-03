@@ -1,11 +1,12 @@
 <?php
+
 /**
- * rcc.bolt
+ * Bolt Database Dumper
  *
- * @license ${LICENSE_LINK}
- * @link ${PROJECT_URL_LINK}
- * @version ${VERSION}
- * @package ${PACKAGE_NAME}
+ * @license http://opensource.org/licenses/MIT
+ * @link https://github.com/caseyamcl/bolt_dumpdb
+ * @version 1.0
+ * @package caseyamcl/bolt_dumpdb
  * @author Casey McLaughlin <caseyamcl@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
@@ -23,6 +24,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
 
+/**
+ * Dump Database Command
+ *
+ * @author Casey McLaughlin <caseyamcl@gmail.com>
+ */
 class DumpDbNutCommand extends Command
 {
     use CmdHelper;
@@ -47,6 +53,9 @@ class DumpDbNutCommand extends Command
         $this->db = $db;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function configure()
     {
         $this->setName('database:dump');
@@ -54,6 +63,9 @@ class DumpDbNutCommand extends Command
         $this->addArgument('file', InputArgument::OPTIONAL, 'File to dump database to; else it writes to STDOUT');
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         switch ($this->db->getDriver()->getName()) {
@@ -71,7 +83,7 @@ class DumpDbNutCommand extends Command
                 );
                 break;
             case 'pdo_sqlite':
-                $this->chkCommand('sqlite3');
+                $this->chkCommand('sqlite3 --version', 'sqlite3');
                 $command = sprintf(
                     "sqlite3 %s .dump",
                     $this->db->getParams()['path']

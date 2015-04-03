@@ -1,11 +1,12 @@
 <?php
+
 /**
- * rcc.bolt
+ * Bolt Database Dumper
  *
- * @license ${LICENSE_LINK}
- * @link ${PROJECT_URL_LINK}
- * @version ${VERSION}
- * @package ${PACKAGE_NAME}
+ * @license http://opensource.org/licenses/MIT
+ * @link https://github.com/caseyamcl/bolt_dumpdb
+ * @version 1.0
+ * @package caseyamcl/bolt_dumpdb
  * @author Casey McLaughlin <caseyamcl@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
@@ -22,6 +23,11 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Load Database Command
+ *
+ * @author Casey McLaughlin <caseyamcl@gmail.com>
+ */
 class LoadDbNutCommand extends Command
 {
     use CmdHelper;
@@ -48,6 +54,9 @@ class LoadDbNutCommand extends Command
 
     // ---------------------------------------------------------------
 
+    /**
+     * {@inheritdoc}
+     */
     protected function configure()
     {
         $this->setName('database:load');
@@ -55,6 +64,11 @@ class LoadDbNutCommand extends Command
         $this->addArgument('file', InputArgument::OPTIONAL, 'File containing SQL; else read from STDIN');
     }
 
+    // ---------------------------------------------------------------
+
+    /**
+     * {@inheritdoc}
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if ( ! $this->db->isConnected()) {

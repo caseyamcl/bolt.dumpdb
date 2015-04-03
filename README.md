@@ -1,7 +1,7 @@
 Bolt Dump DB
 ============
 
-This is a [Bolt CMS Extension](http://bolt.cm) extension that adds command for
+This is a [Bolt CMS Extension](http://bolt.cm) extension that adds a `nut` command for
 dumping and loading the database to make scripting backups and restores very easy.
 
 ## Install
@@ -48,12 +48,12 @@ You can optionally specify an input file if you wish, or you can load the databa
     cat ~/backup.sql | app/nut database:load
     
     #...like directly from another database
-    mysqldump -u root my_bolt_database | app/nut database:load
+    mysqldump -u dbuser my_bolt_database | app/nut database:load
         
 ## Contributing
 
 Contributions are **welcome**!  Please submit a pull request or open an issue via
-the Github repository page.
+the [Github repository page](http://github.com/caseyamcl/bolt_dumpdb).
 
 ## License
 
